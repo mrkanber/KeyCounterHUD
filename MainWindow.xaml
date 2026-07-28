@@ -1,0 +1,35 @@
+<Window x:Class="KeyCounterHUD.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="KeyCounterHUD"
+        Width="110" Height="30"
+        WindowStyle="None"
+        AllowsTransparency="True"
+        Background="Transparent"
+        Topmost="True"
+        ShowInTaskbar="False"
+        ResizeMode="NoResize"
+        WindowStartupLocation="Manual">
+    <Grid Background="#01000000" MouseLeftButtonDown="Window_MouseLeftButtonDown">
+        <Grid.ContextMenu>
+            <ContextMenu>
+                <MenuItem Header="Sıfırla" Click="ResetMenuItem_Click"/>
+                <MenuItem Header="Renk">
+                    <MenuItem Header="Beyaz" Click="ColorMenuItem_Click" Tag="#FFFFFF"/>
+                    <MenuItem Header="Sarı" Click="ColorMenuItem_Click" Tag="#FFD400"/>
+                    <MenuItem Header="Yeşil" Click="ColorMenuItem_Click" Tag="#39FF14"/>
+                    <MenuItem Header="Kırmızı" Click="ColorMenuItem_Click" Tag="#FF3B30"/>
+                    <MenuItem Header="Mavi" Click="ColorMenuItem_Click" Tag="#4DA3FF"/>
+                </MenuItem>
+                <MenuItem x:Name="AutoStartMenuItem" Header="Başlangıçta Aç" IsCheckable="True" Click="AutoStartMenuItem_Click"/>
+                <Separator/>
+                <MenuItem Header="Çıkış" Click="ExitMenuItem_Click"/>
+            </ContextMenu>
+        </Grid.ContextMenu>
+        <TextBlock x:Name="CountText" Text="0" FontSize="20" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="4,0,0,0">
+            <TextBlock.Effect>
+                <DropShadowEffect Color="Black" BlurRadius="4" ShadowDepth="0" Opacity="0.85"/>
+            </TextBlock.Effect>
+        </TextBlock>
+    </Grid>
+</Window>
